@@ -10,3 +10,7 @@
     background-color: #ffffff;
   }
 }
+
+.highlighted {
+  color: yellow;
+}

@@ -1,13 +1,17 @@
 import Hello from "./components/Hello";
+import UserList from "./components/UserList.tsx";
+import users from "./data/users.ts";
 
 function App() {
+  const handleButtonClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    console.log(e);
+  };
+
   return (
-    <div>
-      <h1>Template</h1>
-      <Hello name="Matyi" age={18} />
-      <Hello name="Sanyi" age={15} />
-      <Hello name="Ági" age={20} />
-    </div>
+    <>
+      <Hello name="Sanyi" age={15} onClick={handleButtonClick} sex="male" />
+      <UserList users={users} />
+    </>
   );
 }
 
