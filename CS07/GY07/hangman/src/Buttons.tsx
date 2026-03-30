@@ -1,8 +1,15 @@
-const Buttons = () => {
+interface ButtonsProps {
+  text: string[];
+}
+
+const Buttons = ({ text }: ButtonsProps) => {
   return (
     <div id="betuk">
-      <button disabled={false}>a</button>
-      <button disabled={true}>b</button>
+      {text.map((l, i) => (
+        <button key={i} disabled={false}>
+          {l}
+        </button>
+      ))}
     </div>
   );
 };

@@ -1,9 +1,25 @@
-function TaskItem() {
+import type { Task } from "../data/tasks";
+
+interface TaskItemProps {
+  task: Task;
+  onClick: (id: number) => void;
+  onComplete: (id: number) => void;
+}
+
+function TaskItem({
+  task: { id, title, completed },
+  onClick,
+  onComplete,
+}: TaskItemProps) {
   return (
-    <div className={`task-item completed}`}>
-      <input onChange={() => console.log("CHECKBOX")} type="checkbox" checked />
-      <span>Feladat</span>
-      <button onClick={() => console.log("TÖRLÉS")}>✕</button>
+    <div className={`task-item ${completed ? "completed" : ""}`}>
+      <input
+        onChange={() => onComplete(id)}
+        type="checkbox"
+        checked={completed}
+      />
+      <span>{title}</span>
+      <button onClick={() => onClick(id)}>✕</button>
     </div>
   );
 }

@@ -1,10 +1,12 @@
 import { useState } from "react";
 
 const Incrementer = () => {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(initState);
 
   const handleIncrementTwiceClick = () => {
-    console.log("INCREMENT CLICKED");
+    // setCount(count + 1);
+    setCount((c) => c + 1);
+    setCount((c) => c + 1);
   };
 
   return (

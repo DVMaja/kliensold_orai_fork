@@ -1,8 +1,23 @@
-function TaskList() {
-  // console.log(data);
+import type { Task } from "../data/tasks";
+import TaskItem from "./TaskItem";
+
+interface TaskListProps {
+  tasks: Task[];
+  onClick: (id: number) => void;
+  onComplete: (id: number) => void;
+}
+
+function TaskList({ tasks, onClick, onComplete }: TaskListProps) {
   return (
     <div className="task-list">
-      <h1>Task List</h1>
+      {tasks.map((task) => (
+        <TaskItem
+          key={task.id}
+          task={task}
+          onClick={onClick}
+          onComplete={onComplete}
+        />
+      ))}
     </div>
   );
 }
